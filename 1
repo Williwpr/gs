@@ -2,8 +2,7 @@
 
 # 1. Converter pdf pra txt 
 	
-	gs -sDEVICE=txtwrite -o teste.txt teste.pdf
-	gs -sDEVICE=txtwrite -sOutputFile=- -q -dNOPAUSE -dBATCH to-be-processed.pdf
+	gs -sDEVICE=txtwrite -o -q teste.txt teste.pdf
 	
 # 2. Converter e criar/mover para outra pasta
 

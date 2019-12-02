@@ -1,8 +1,10 @@
 #Tarefas de converter:
 
 # 1. Converter pdf pra txt 
-gs -sDEVICE=txtwrite -o teste.txt teste.pdf
-
+	
+	gs -sDEVICE=txtwrite -o teste.txt teste.pdf
+	gs -sDEVICE=txtwrite -sOutputFile=- -q -dNOPAUSE -dBATCH to-be-processed.pdf
+	
 # 2. Converter e criar/mover para outra pasta
 
 # 3. Converter todos os arquivos na pasta de pdfs

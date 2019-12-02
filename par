@@ -1,1 +1,25 @@
 https://www.ghostscript.com/doc/9.50/VectorDevices.htm#TXT
+
+##########################################################################################################################################
+
+-dFILTERIMAGE
+If set, ths will ignore all images in the input (in this context image means a bitmap), these will therefore not be rendered.
+
+-dFILTERTEXT
+If set, ths will ignore all text in the input (just because it looks like text doesn't mean it is, it might be an image), text will therefore not be rendered.
+
+-dFILTERVECTOR
+If set, ths will ignore anything whch is neither text nor an image..
+
+##########################################################################################################################################
+
+Path matching is simple: it is case sensitive, and we do not implement full featured "globbing" or regular expression matching (such complexity would significantly and negatively impact performance). The following cases are handled:
+
+"/path/to/file"
+Permits access only to the file: "/path/to/file"
+
+"/path/to/directory/"
+Permits access to any file in, and only in, the directory: "/path/to/directory"
+
+"/path/to/directory/*"
+Permits access to any file in the directory: "/path/to/directory" and any child of that directory.

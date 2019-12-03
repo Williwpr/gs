@@ -14,3 +14,8 @@ ________________________________________________________________________________
 
 # No Linux esse comando converte tudo, mas não usa o gs, nem cria em outro diretório
 for f in *.pdf; do pdftotext "$f"; done
+
+# outras versões/alternativas
+
+for file in *.pdf; do pdftotext "$file" "$file.txt"; done
+for file in *.pdf; do pdftotext -layout "$file"; done

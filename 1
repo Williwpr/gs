@@ -1,10 +1,12 @@
 #Tarefas de converter:
 
 # 1. Converter pdf pra txt 
-	
-	gs -sDEVICE=txtwrite -o -q teste.txt teste.pdf
-	
+
+gs -sDEVICE=txtwrite -q -o teste.txt teste.pdf
+
 # 2. Converter e criar/mover para outra pasta
+
+gs -sDEVICE=txtwrite -q -o teste/teste.txt teste.pdf
 
 # 3. Converter todos os arquivos na pasta de pdfs
 
@@ -13,3 +15,8 @@
 # 5. Converter diversas pastas
 
 # 6. Converter e mover p/outra pasta
+
+__________________________________________________________________________________________________
+
+# no linux esse comando converte tudo, mas não usa o gs, nem cria em outro diretório
+for f in *.pdf; do pdftotext "$f"; done

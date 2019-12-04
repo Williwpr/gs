@@ -11,11 +11,22 @@ gs -sDEVICE=txtwrite -q -o teste/teste.txt teste.pdf
 #	Converter todos para outra pasta
 
 __________________________________________________________________________________________________
+# Linux
+# pegar path
+readlink -f a
 
-# No Linux esse comando converte tudo, mas não usa o gs, nem cria em outro diretório
-for f in *.pdf; do pdftotext "$f"; done
+# ajustar código
+for f in *.pdf; do pdftotext "$f" "/home/wpr/Desktop/teste/texto/${f%.*}.txt"; done
 
-# outras versões/alternativas
+# ref https://unix.stackexchange.com/questions/234041/how-to-output-files-to-another-directory-poppler-pdftotext
+_____________________
 
-for file in *.pdf; do pdftotext "$file" "$file.txt"; done
-for file in *.pdf; do pdftotext -layout "$file"; done
+
+
+
+#!/bin/bash
+for f in *.pdf
+do
+    gs -sDEVICE=txtwrite -q -sOutputFile=$f $f
+	#gs -sDEVICE=txtwrite -q -o teste/$f.txt $f.pdf
+done
